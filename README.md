@@ -1,7 +1,12 @@
 # Weather-Dashboard
 
-An application which allows a user to submit and specify a particular location and then be presented with the weather for 
+An application which fetchs data from an API which allows a user to submit and specify a particular location and then be presented with the weather for 
 that location for the next 24 hours.
+
+## Third-Pary API
+
+
+[OpenWeather One Call API](https://openweathermap.org/api/one-call-api)
 
 ## User Story
 
