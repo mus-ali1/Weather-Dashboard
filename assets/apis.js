@@ -6,14 +6,18 @@ function generateUrl(city) {
 }
 
 function makeRequest(url) {
-    return fetch(endpoint);
-
+    return fetch(endpoint).then(function (response) {
+        return response.json();
+    });
 }
 
 
+var city = "Birmingham"
 
-var city = "";
+var endpoint = generateUrl(city);
 
-fetch(queryUrl);
+makeRequest(endpoint).then(function (weatherInfo) {
 
-console.log("hello from api ")
+})
+
+console.log(makeRequest);
