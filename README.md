@@ -1,7 +1,6 @@
 # Weather-Dashboard
 
-An application which fetchs data from an API which allows a user to submit and specify a particular location and then be presented with the weather for 
-that location for the next 24 hours.
+An application which fetchs data from an API which allows a user to submit and specify a particular location and then be presented with the weather for that location for the next 24 hours.
 
 ## Third-Pary API
 
