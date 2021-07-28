@@ -2,7 +2,7 @@ var apiKey = "64364aff8f1f06d28b058755f3637866";
 
 function generateUrl(city) {
 
-    return `api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
+    return `https.//api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
 }
 
 function makeRequest(url) {
@@ -10,14 +10,3 @@ function makeRequest(url) {
         return response.json();
     });
 }
-
-
-var city = "Birmingham"
-
-var endpoint = generateUrl(city);
-
-makeRequest(endpoint).then(function (weatherInfo) {
-
-})
-
-console.log(makeRequest);
