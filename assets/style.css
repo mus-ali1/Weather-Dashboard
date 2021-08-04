@@ -11,10 +11,11 @@
 
 }
 
-#search-button {
+.input-group {
 
     font-size: 15px;
     border-left: 1px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    max-height: 500px;
     }
