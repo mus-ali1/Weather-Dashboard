@@ -1,13 +1,22 @@
-var apiKey = "64364aff8f1f06d28b058755f3637866";
-var searchInput = document.getElementById.addEventListener("click"); ("search-input"); console.log(searchInput)
-var searchButton = document.getElementById.addEventListener("click"); ("search-button"); console.log(searchButton)
-var searchHistory = document.getElementById("search-history");
+const apiKey = "64364aff8f1f06d28b058755f3637866";
+const cityInput = document.getElementById("city-input");
+const searchButton = document.getElementById("search-button");
+const clearHistory = document.getElementById("clear-history");
+const cityName = document.getElementById("city-name");
+const currentPic = document.getElementById("current-pic");
+const currentTemp = document.getElementById("temperature");
+const currentHumidity = document.getElementById("humidity"); 4
+const currentWind = document.getElementById("wind-speed");
+const currentUV = document.getElementById("UV-index");
+const history = document.getElementById("history");
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+console.log(searchHistory);
+
+
 
 
 
 // function searchEvent(event) {
-
-
 //   event.preventDefault();
 //   var userInput = searchInput.value.trim();
 
