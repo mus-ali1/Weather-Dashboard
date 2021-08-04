@@ -1,8 +1,23 @@
 var apiKey = "64364aff8f1f06d28b058755f3637866";
-var searchInput = document.getElementById("search-input");
-var searchButton = document.getElementById("search-button");
+var searchInput = document.getElementById.addEventListener("click"); ("search-input"); console.log(searchInput)
+var searchButton = document.getElementById.addEventListener("click"); ("search-button"); console.log(searchButton)
 var searchHistory = document.getElementById("search-history");
 
+
+
+// function searchEvent(event) {
+
+
+//   event.preventDefault();
+//   var userInput = searchInput.value.trim();
+
+//   console.log(searchInput);
+
+//   if (userInput === "") {
+//     alert("Please Input a destination !")
+//     return;
+//   }
+// }
 
 
 
