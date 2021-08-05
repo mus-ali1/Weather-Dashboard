@@ -5,7 +5,7 @@ const searchHistory = document.getElementById("search-history");
 const nameEl = document.getElementById("city-name");
 const currentPicEl = document.getElementById("current-pic");
 const currentTempEl = document.getElementById("temperature");
-const currentHumidityEl = document.getElementById("humidity"); 4
+const currentHumidityEl = document.getElementById("humidity");
 const currentWindEl = document.getElementById("wind-speed");
 const currentUVEl = document.getElementById("UV-index");
 const historyEl = document.getElementById("history");
@@ -108,6 +108,11 @@ function populateData(dataObject) {
     currentTempEl[i].textContent = dataSet.daily[i].temp.day + "°C";
     currentWindEl[i].textContent = dataSet.daily[i].wind_speed + "km/h";
     currentHumidityEl[i].textContent = dataSet.daily[i].humidity + "%";
+
+
+    var icon = dataSet.daily[i].weather[0].icon;
+    var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    weatherIconEls[i].setAttribute("src", iconUrl)
 
 
   }
