@@ -9,7 +9,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
 
-    <title>Document</title>
+    <title>Weather-Dashboard</title>
 </head>
 
 <body>
@@ -29,12 +29,10 @@
                         </button>
                     </div>
                 </div>
-                <form id="search-history">
-                    <ul>
-
-
-                    </ul>
-                </form>
+                <div id="searchHistorySection"></div>
+                <ul id="searchHistory">
+                </ul>
+                <form id="history"></form>
             </div>
             <div class="col-8">
                 <div class="row mr-0">
@@ -42,7 +40,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <span id="city-name" class="city-name align-middle"></span>
-                                <img id="current-pic" src="placeholder" alt="">
+                                <img id="current-pic" src="" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -86,7 +84,6 @@
 
 
     <script src="assets/apis.js"></script>
-    <script src="assets/script.js"></script>
 
 </body>
 
