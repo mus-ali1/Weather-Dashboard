@@ -89,7 +89,7 @@ function populateData(dataObject) {
   for (var i = 0; i < 6; i++) {
 
     var headerDate = moment.unix(dataSet.daily[i].dt).format("DD/MM/YY");
-    currentPicEl[i].textContent = headerDate;
+
 
     // UV index for current day
     if (i === 0) {
@@ -102,6 +102,13 @@ function populateData(dataObject) {
         currentUVEl.setAttribute("class", "highUV");
       }
     }
+
+    //push content to the cards
+    currentPicEl[i].textContent = headerDate;
+    currentTempEl[i].textContent = dataSet.daily[i].temp.day + "°C";
+    currentWindEl[i].textContent = dataSet.daily[i].wind_speed + "km/h";
+    currentHumidityEl[i].textContent = dataSet.daily[i].humidity + "%";
+
 
   }
 
