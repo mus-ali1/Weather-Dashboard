@@ -11,11 +11,11 @@ const currentUVEl = document.getElementById("UV-index");
 const historyEl = document.getElementById("history");
 
 
-//search button event listener
-searchEl.addEventListener("click", startSearch);
+// //search button event listener
+// searchEl.addEventListener("click");
 
-//search history event listener
-searchHistory.addEventListener("click")
+// //search history event listener
+// searchHistory.addEventListener("click");
 
 
 // initiates search 
@@ -48,19 +48,21 @@ function searchApi(destination) {
 
   // URL for current day only returns latitude and longitude
 
-  var urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`;
+  var urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiIKey}`;
 
   fetch(urlApi)
     .then(function (response) {
+
       if (response.ok) {
         response.json()
           .then(function (data) {
+            console.log(data)
             var lat = data.cootd.lat;
             var lon = data.coord.lon
 
             // creating a new fetch from the intial fetch which returned only 1 day weather forecast
 
-            var sevenDayForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${APIKey}`
+            var sevenDayForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiIKey}`
             fetch(sevenDayForecast)
               .then(function (response2) {
 
@@ -83,6 +85,13 @@ function searchApi(destination) {
 
 function populateData(dataObject) {
   var dataSet = dataObject;
+
+  for (var i = 0; i < 6; i++) {
+
+    var headerDate = moment.unix(dataSet.daily[i].dt).format("DD/MM/YY");
+    currentPicEl[i].textContent = headerDate;
+
+  }
 
 
 }
