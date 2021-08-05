@@ -54,9 +54,20 @@ function searchApi(destination) {
 
             // creating a new fetch from the intial fetch which returned only 1 day weather forecast
 
+            var sevenDayForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${APIKey}`
+            fetch(sevenDayForecast)
+              .then(function (response2) {
 
-          }
-  }
+                response2.json()
+                  .then(function (data2) {
+                    populateDate(data2)
+                  })
+              })
+
+          });
+
+        //in case of error on retrieved datat
+      }
 
     }
 
