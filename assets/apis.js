@@ -12,7 +12,7 @@ const historyEl = document.getElementById("history");
 
 
 // //search button event listener
-// searchEl.addEventListener("click");
+// searchEl.addEventListener("click", searchApi);
 
 // //search history event listener
 // searchHistory.addEventListener("click");
@@ -90,6 +90,18 @@ function populateData(dataObject) {
 
     var headerDate = moment.unix(dataSet.daily[i].dt).format("DD/MM/YY");
     currentPicEl[i].textContent = headerDate;
+
+    // UV index for current day
+    if (i === 0) {
+      currentUVEl.textContent = dataSet.daily[i].uvi;
+      if (dataSet.daily[i].uvi <= 4) {
+        currentUVEl.setAttribute("class", "lowUV");
+      } else if (dataSet.daily[i].uvi < 7) {
+        currentUVEl.setAttribute("class", "midUV");
+      } else {
+        currentUVEl.setAttribute("class", "highUV");
+      }
+    }
 
   }
 
