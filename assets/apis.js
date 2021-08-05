@@ -30,9 +30,16 @@ function searchEvent(event) {
   searchApi(userInput);
   inputEl.value = "";
 
-
 }
 
+
+// begin user query 
+
+function searchApi(destination) {
+  var city = destination;
+  nameEl.textContent = city;
+
+}
 
 
 
