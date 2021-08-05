@@ -21,6 +21,8 @@ function searchEvent(event) {
 
   console.log(searchInput);
 
+  //Deals with a lack of user input 
+
   if (userInput === "") {
     alert("Please Input a destination !")
     return;
@@ -60,18 +62,21 @@ function searchApi(destination) {
 
                 response2.json()
                   .then(function (data2) {
-                    populateDate(data2)
+                    populateData(data2)
                   })
               })
 
           });
 
-        //in case of error on retrieved datat
+        //in case of error on retrieved data
+      } else {
+        alert("error" + response.statusText);
       }
 
-    }
+    })
 
 }
+
 
 
 
