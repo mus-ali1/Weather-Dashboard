@@ -1,32 +1,37 @@
-const apiKey = "64364aff8f1f06d28b058755f3637866";
-const cityInput = document.getElementById("city-input");
-const searchButton = document.getElementById("search-button");
-const clearHistory = document.getElementById("clear-history");
-const cityName = document.getElementById("city-name");
-const currentPic = document.getElementById("current-pic");
-const currentTemp = document.getElementById("temperature");
-const currentHumidity = document.getElementById("humidity"); 4
-const currentWind = document.getElementById("wind-speed");
-const currentUV = document.getElementById("UV-index");
-const history = document.getElementById("history");
-let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
-console.log(searchHistory);
+var apiKey = "64364aff8f1f06d28b058755f3637866";
 
 
 
+const inputEl = document.getElementById("city-input");
+const searchEl = document.getElementById("search-button");
+const clearEl = document.getElementById("clear-history");
+const nameEl = document.getElementById("city-name");
+const currentPicEl = document.getElementById("current-pic");
+const currentTempEl = document.getElementById("temperature");
+const currentHumidityEl = document.getElementById("humidity"); 4
+const currentWindEl = document.getElementById("wind-speed");
+const currentUVEl = document.getElementById("UV-index");
+const historyEl = document.getElementById("history");
 
 
-// function searchEvent(event) {
-//   event.preventDefault();
-//   var userInput = searchInput.value.trim();
+// initiates search 
+function searchEvent(event) {
+  event.preventDefault();
+  var userInput = searchInput.value.trim();
 
-//   console.log(searchInput);
+  console.log(searchInput);
 
-//   if (userInput === "") {
-//     alert("Please Input a destination !")
-//     return;
-//   }
-// }
+  if (userInput === "") {
+    alert("Please Input a destination !")
+    return;
+  }
+  updateLocalStorage("city-input");
+  updateclearEl();
+  searchApi(userInput);
+  inputEl.value = "";
+
+
+}
 
 
 
