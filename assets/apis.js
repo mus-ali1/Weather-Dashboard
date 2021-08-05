@@ -1,10 +1,7 @@
 var apiKey = "64364aff8f1f06d28b058755f3637866";
-
-
-
 const inputEl = document.getElementById("city-input");
 const searchEl = document.getElementById("search-button");
-const clearEl = document.getElementById("clear-history");
+const searchHistory = document.getElementById("search-history");
 const nameEl = document.getElementById("city-name");
 const currentPicEl = document.getElementById("current-pic");
 const currentTempEl = document.getElementById("temperature");
@@ -12,6 +9,13 @@ const currentHumidityEl = document.getElementById("humidity"); 4
 const currentWindEl = document.getElementById("wind-speed");
 const currentUVEl = document.getElementById("UV-index");
 const historyEl = document.getElementById("history");
+
+
+//search button event listener
+searchEl.addEventListener("click", startSearch);
+
+//search history event listener
+searchHistory.addEventListener("click")
 
 
 // initiates search 
@@ -77,7 +81,11 @@ function searchApi(destination) {
 
 }
 
+function populateData(dataObject) {
+  var dataSet = dataObject;
 
+
+}
 
 
 
