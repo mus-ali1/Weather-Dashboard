@@ -39,6 +39,27 @@ function searchApi(destination) {
   var city = destination;
   nameEl.textContent = city;
 
+
+  // URL for current day only returns latitude and longitude
+
+  var urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`;
+
+  fetch(urlApi)
+    .then(function (response) {
+      if (response.ok) {
+        response.json()
+          .then(function (data) {
+            var lat = data.cootd.lat;
+            var lon = data.coord.lon
+
+            // creating a new fetch from the intial fetch which returned only 1 day weather forecast
+
+
+          }
+  }
+
+    }
+
 }
 
 
