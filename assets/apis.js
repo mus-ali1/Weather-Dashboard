@@ -163,6 +163,21 @@ function updateSearchHistoryEl() {
 }
 
 
+function searchHistoryClick(event) {
+  event.preventDefault();
+
+  var target = event.target;
+
+  console.log("click");
+  console.log(event.target);
+  console.log(target);
+
+  if (target.matches("li")) {
+    searchAPI(target.textContent)
+  }
+
+}
+
 
 
 
