@@ -112,11 +112,29 @@ function populateData(dataObject) {
 
     var icon = dataSet.daily[i].weather[0].icon;
     var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    weatherIconEls[i].setAttribute("src", iconUrl)
+    currentPicEl[i].setAttribute("src", iconUrl)
 
 
   }
 
+
+}
+
+//saves events to local storage
+function updateLocalStorage(userInput) {
+
+  var city = {
+    name: userInput
+  };
+
+  var searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+  if (searchHistory === null) {
+    searchHistory = [];
+    searchHistory.push(city);
+  }
+  searchHistory.unshift(city);
+
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
 }
 
