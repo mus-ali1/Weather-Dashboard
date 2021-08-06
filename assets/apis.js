@@ -10,12 +10,11 @@ const currentWindEl = document.getElementById("wind-speed");
 const currentUVEl = document.getElementById("UV-index");
 const historyEl = document.getElementById("history");
 
+//search button event listener
+searchEl.addEventListener("click", startSearch);
 
-// //search button event listener
-// searchEl.addEventListener("click", searchApi);
-
-// //search history event listener
-// searchHistory.addEventListener("click");
+//search history event listener
+searchHistoryListEl.addEventListener("click", searchHistoryClick)
 
 
 // initiates search 
