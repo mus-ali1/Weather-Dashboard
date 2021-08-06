@@ -109,7 +109,7 @@ function populateData(dataObject) {
     }
 
     //push content to the cards
-    dateEl[0].textContent = headerDate;
+    dateEl.textContent = headerDate;
     currentTempEl[i].textContent = dataSet.daily[i].temp.day + "°C";
     currentWindEl[i].textContent = dataSet.daily[i].wind_speed + "km/h";
     currentHumidityEl[i].textContent = dataSet.daily[i].humidity + "%";
