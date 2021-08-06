@@ -179,6 +179,8 @@ function searchHistoryClick(event) {
 }
 
 
+updateSearchHistoryEl();
+
 
 
 
