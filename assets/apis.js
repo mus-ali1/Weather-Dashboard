@@ -133,7 +133,7 @@ function updateLocalStorage(userInput) {
   var searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
   if (searchHistory === null) {
     searchHistory = [];
-    searchHistory.push(city);
+
   }
   searchHistory.unshift(city);
 
