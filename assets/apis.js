@@ -1,15 +1,16 @@
-var apiKey = "64364aff8f1f06d28b058755f3637866";
-const inputEl = document.getElementById("city-input");
-const searchEl = document.getElementById("search-button");
-const searchInputEl = document.getElementById("search-input")
-const searchHistory = document.getElementById("searchHistorySection");
-const nameEl = document.getElementById("city-name");
-const currentPicEl = document.getElementById("current-pic");
-const currentTempEl = document.getElementById("temperature");
-const currentHumidityEl = document.getElementById("humidity");
-const currentWindEl = document.getElementById("wind-speed");
-const currentUVEl = document.getElementById("UV-index");
-const historyEl = document.getElementById("history");
+
+var inputEl = document.getElementById("city-input");
+var searchEl = document.getElementById("search-button");
+var searchInputEl = document.getElementById("search-input")
+var searchHistory = document.getElementById("searchHistorySection");
+var nameEl = document.getElementById("city-name");
+var currentPicEl = document.getElementById("current-pic");
+var currentTempEl = document.getElementById("temperature");
+var currentHumidityEl = document.getElementById("humidity");
+var currentWindEl = document.getElementById("wind-speed");
+var currentUVEl = document.getElementById("UV-index");
+var historyEl = document.getElementById("history");
+var dateEl = document.getElementById("date");
 
 //search button event listener
 searchEl.addEventListener("click", searchEvent);
@@ -22,7 +23,7 @@ searchHistory.addEventListener("click", searchHistoryClick)
 function searchEvent(event) {
   event.preventDefault();
   var userInput = inputEl.value.trim();
-  console.log(userInput);
+
 
 
 
@@ -47,10 +48,10 @@ function searchApi(destination) {
   var city = destination;
   nameEl.textContent = city;
 
-
+  var apiKey = "64364aff8f1f06d28b058755f3637866";
   // URL for current day only returns latitude and longitude
 
-  var urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiIKey}`;
+  var urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   fetch(urlApi)
     .then(function (response) {
@@ -59,12 +60,12 @@ function searchApi(destination) {
         response.json()
           .then(function (data) {
             console.log(data)
-            var lat = data.cootd.lat;
-            var lon = data.coord.lon
+            var lat = data.coord.lat;
+            var lon = data.coord.lon;
 
             // creating a new fetch from the intial fetch which returned only 1 day weather forecast
 
-            var sevenDayForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiIKey}`
+            var sevenDayForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiKey}`
             fetch(sevenDayForecast)
               .then(function (response2) {
 
@@ -72,6 +73,7 @@ function searchApi(destination) {
                 response2.json()
                   .then(function (data2) {
                     populateData(data2)
+                    console.log(data2)
                   })
               })
 
@@ -107,7 +109,7 @@ function populateData(dataObject) {
     }
 
     //push content to the cards
-    currentPicEl[i].textContent = headerDate;
+    dateEl[0].textContent = headerDate;
     currentTempEl[i].textContent = dataSet.daily[i].temp.day + "°C";
     currentWindEl[i].textContent = dataSet.daily[i].wind_speed + "km/h";
     currentHumidityEl[i].textContent = dataSet.daily[i].humidity + "%";
