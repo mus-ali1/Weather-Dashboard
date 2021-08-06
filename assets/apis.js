@@ -14,7 +14,7 @@ const historyEl = document.getElementById("history");
 searchEl.addEventListener("click", startSearch);
 
 //search history event listener
-searchHistoryListEl.addEventListener("click", searchHistoryClick)
+searchHistory.addEventListener("click", searchHistoryClick)
 
 
 // initiates search 
@@ -137,8 +137,30 @@ function updateLocalStorage(userInput) {
 
 }
 
+//fills in the search history
+function updateSearchHistoryEl() {
 
 
+  var searchHistoryEl = document.querySelector("#searchHistory");
+  while (searchHistoryEl.firstChild) {
+    searchHistoryEl.removeChild(searchHistoryEl.firstChild)
+  }
+
+  var searchHistoryItems = JSON.parse(localStorage.getItem("searchHistory"));
+
+  if (searchHistoryItems === null) {
+    return;
+  }
+
+  for (i = 0; i < searchHistoryItems.length; i++) {
+    var liEl = document.createElement("li");
+    liEl.innerHTML = searchHistoryItems[i].name;
+    searchHistoryEl.appendChild(liEl);
+  }
+
+
+
+}
 
 
 
@@ -192,4 +214,4 @@ function updateLocalStorage(userInput) {
 //       return response.json();
 //     })
 //     .then(function (data) {
-//       console.log(data)
+//       console.log(data) }
