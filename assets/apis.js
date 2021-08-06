@@ -1,7 +1,8 @@
 var apiKey = "64364aff8f1f06d28b058755f3637866";
 const inputEl = document.getElementById("city-input");
 const searchEl = document.getElementById("search-button");
-const searchHistory = document.getElementById("search-history");
+const searchInputEl = document.getElementById("search-input")
+const searchHistory = document.getElementById("searchHistorySection");
 const nameEl = document.getElementById("city-name");
 const currentPicEl = document.getElementById("current-pic");
 const currentTempEl = document.getElementById("temperature");
@@ -11,7 +12,7 @@ const currentUVEl = document.getElementById("UV-index");
 const historyEl = document.getElementById("history");
 
 //search button event listener
-searchEl.addEventListener("click", startSearch);
+searchEl.addEventListener("click", searchEvent);
 
 //search history event listener
 searchHistory.addEventListener("click", searchHistoryClick)
@@ -20,7 +21,7 @@ searchHistory.addEventListener("click", searchHistoryClick)
 // initiates search 
 function searchEvent(event) {
   event.preventDefault();
-  var userInput = searchInput.value.trim();
+  var userInput = searchInputEl.value.trim();
 
   console.log(searchInput);
 
