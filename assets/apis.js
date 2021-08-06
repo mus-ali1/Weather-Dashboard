@@ -21,9 +21,10 @@ searchHistory.addEventListener("click", searchHistoryClick)
 // initiates search 
 function searchEvent(event) {
   event.preventDefault();
-  var userInput = searchInputEl.value.trim();
+  var userInput = inputEl.value.trim();
+  console.log(userInput);
 
-  console.log(searchInput);
+
 
   //Deals with a lack of user input 
 
@@ -32,7 +33,7 @@ function searchEvent(event) {
     return;
   }
   updateLocalStorage("city-input");
-  updateclearEl();
+  updateSearchHistoryEl();
   searchApi(userInput);
   inputEl.value = "";
 
@@ -65,6 +66,7 @@ function searchApi(destination) {
             var sevenDayForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiIKey}`
             fetch(sevenDayForecast)
               .then(function (response2) {
+
 
                 response2.json()
                   .then(function (data2) {
