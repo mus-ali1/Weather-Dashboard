@@ -32,7 +32,8 @@ function searchEvent(event) {
     alert("Please Input a destination !")
     return;
   }
-  updateLocalStorage("city-input");
+
+  updateLocalStorage(userInput);
   updateSearchHistoryEl();
   searchApi(userInput);
   inputEl.value = "";
