@@ -3,14 +3,14 @@ var inputEl = document.getElementById("city-input");
 var searchEl = document.getElementById("search-button");
 var searchInputEl = document.getElementById("search-input")
 var searchHistory = document.getElementById("searchHistorySection");
-var nameEl = document.getElementById("city-name");
+var nameEl = document.getElementById("cityNameAndDate");
 var currentPicEl = document.getElementById("current-pic");
 var currentTempEl = document.getElementById("temperature");
 var currentHumidityEl = document.getElementById("humidity");
 var currentWindEl = document.getElementById("wind-speed");
 var currentUVEl = document.getElementById("UV-index");
 var historyEl = document.getElementById("history");
-var dateEl = document.getElementById("date");
+
 
 //search button event listener
 searchEl.addEventListener("click", searchEvent);
@@ -86,6 +86,7 @@ function searchApi(destination) {
 
     })
 
+
 }
 
 function populateData(dataObject) {
@@ -94,6 +95,7 @@ function populateData(dataObject) {
   for (var i = 0; i < 6; i++) {
 
     var headerDate = moment.unix(dataSet.daily[i].dt).format("DD/MM/YY");
+    nameEl.textContent = headerDate;
 
 
     // UV index for current day
@@ -108,12 +110,11 @@ function populateData(dataObject) {
       }
     }
 
+
     //push content to the cards
-    dateEl.textContent = headerDate;
     currentTempEl[i].textContent = dataSet.daily[i].temp.day + "°C";
     currentWindEl[i].textContent = dataSet.daily[i].wind_speed + "km/h";
     currentHumidityEl[i].textContent = dataSet.daily[i].humidity + "%";
-
 
     var icon = dataSet.daily[i].weather[0].icon;
     var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -121,7 +122,6 @@ function populateData(dataObject) {
 
 
   }
-
 
 }
 
