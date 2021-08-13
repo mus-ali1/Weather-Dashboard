@@ -21,3 +21,58 @@
     }
 
 
+    #dashboard {
+        width: 75%;
+        margin: 0 2.5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #cardOne{
+        width: 98%;
+        padding: 1%;
+        background-color: slateblue;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.25rem;
+    }
+    
+    #uvIndex{
+        border-radius: 5px;
+        padding: 2px 5px;
+    }
+    
+    #fiveDayCards{
+        width: 98%;
+        padding: 1%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    
+    #fiveDayCards h3{
+        width: 100%;
+    }
+    
+    #fiveDayCards .card{
+        width: 16%;
+        margin: 1%;
+        padding: 1%;
+        background-color: slateblue;
+        color: white;
+        border-radius: 5px;
+    }
+    
+    .lowUV{
+        background-color: green;
+    }
+    
+    .midUV{
+        background-color: rgb(255, 102, 0);
+    }
+    
+    .highUV{
+        background-color: red;
+    }
+    
