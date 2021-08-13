@@ -3,13 +3,8 @@ var inputEl = document.getElementById("city-input");
 var searchEl = document.getElementById("search-button");
 var searchInputEl = document.getElementById("search-input")
 var searchHistory = document.getElementById("searchHistorySection");
-var nameEl = document.getElementById("cityNameAndDate");
-var currentPicEl = document.getElementById("current-pic");
-var currentTempEl = document.getElementById("temperature");
-var currentHumidityEl = document.getElementById("humidity");
-var currentWindEl = document.getElementById("wind-speed");
-var currentUVEl = document.getElementById("UV-index");
 var historyEl = document.getElementById("history");
+var cityNameEL = document.getElementById("CityName");
 
 
 //search button event listener
@@ -46,7 +41,7 @@ function searchEvent(event) {
 
 function searchApi(destination) {
   var city = destination;
-  nameEl.textContent = city;
+  cityNameEL.textContent = city;
 
   var apiKey = "64364aff8f1f06d28b058755f3637866";
   // URL for current day only returns latitude and longitude
@@ -92,10 +87,19 @@ function searchApi(destination) {
 function populateData(dataObject) {
   var dataSet = dataObject;
 
+  //select all spans and loop through them 
+  var tempSpanEls = document.querySelectorAll(".temp");
+  var windSpanEls = document.querySelectorAll(".wind");
+  var humiditySpanEls = document.querySelectorAll(".humidity");
+  var dateHeaderEls = document.querySelectorAll(".date");
+  var weatherIconEls = document.querySelectorAll(".weatherIcon")
+  var currentUVEl = document.querySelector("#uvIndex");
+
+
   for (var i = 0; i < 6; i++) {
 
     var headerDate = moment.unix(dataSet.daily[i].dt).format("DD/MM/YY");
-    nameEl.textContent = headerDate;
+    cityNameEL.textContent = headerDate;
 
 
     // UV index for current day
@@ -112,14 +116,14 @@ function populateData(dataObject) {
 
 
     //push content to the cards
-    currentTempEl[i].textContent = dataSet.daily[i].temp.day + "°C";
-    currentWindEl[i].textContent = dataSet.daily[i].wind_speed + "km/h";
-    currentHumidityEl[i].textContent = dataSet.daily[i].humidity + "%";
+    dateHeaderEls[i].textContent = headerDate;
+    tempSpanEls[i].textContent = dataSet.daily[i].temp.day + "°C";
+    windSpanEls[i].textContent = dataSet.daily[i].wind_speed + "km/h";
+    humiditySpanEls[i].textContent = dataSet.daily[i].humidity + "%";
 
     var icon = dataSet.daily[i].weather[0].icon;
     var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    currentPicEl[i].setAttribute("src", iconUrl)
-
+    weatherIconEls[i].setAttribute("src", iconUrl)
 
   }
 
