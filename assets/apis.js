@@ -99,7 +99,7 @@ function populateData(dataObject) {
   for (var i = 0; i < 6; i++) {
 
     var headerDate = moment.unix(dataSet.daily[i].dt).format("DD/MM/YY");
-    cityNameEL.textContent = headerDate;
+
 
 
     // UV index for current day
