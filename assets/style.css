@@ -22,7 +22,8 @@
     border-left: 1px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    max-height: 500px;
+    
+
     }
 
 
@@ -36,7 +37,7 @@
        
     }
     
-    #cardOne{
+    .card{
         width: 98%;
         padding: 1%;
         background-color: rgb(33, 2, 233);
@@ -45,6 +46,11 @@
         font-size: 1.25rem;
         
 
+    }
+
+    #cardOne {
+
+        margin-top: 7%;
     }
     
     #uvIndex{
